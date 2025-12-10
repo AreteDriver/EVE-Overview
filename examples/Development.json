@@ -1,0 +1,41 @@
+{
+  "name": "Development",
+  "windows": [
+    {
+      "window_id": "0x2000001",
+      "window_title": "Terminal",
+      "x": 1600,
+      "y": 50,
+      "width": 640,
+      "height": 360,
+      "scale": 0.4,
+      "hotkey": "<ctrl>+<alt>+t",
+      "enabled": true
+    },
+    {
+      "window_id": "0x2000002",
+      "window_title": "Log Viewer",
+      "x": 1600,
+      "y": 420,
+      "width": 640,
+      "height": 360,
+      "scale": 0.4,
+      "hotkey": "<ctrl>+<alt>+l",
+      "enabled": true
+    },
+    {
+      "window_id": "0x2000003",
+      "window_title": "Application Output",
+      "x": 1600,
+      "y": 790,
+      "width": 640,
+      "height": 270,
+      "scale": 0.4,
+      "hotkey": "<ctrl>+<alt>+o",
+      "enabled": true
+    }
+  ],
+  "refresh_rate": 20,
+  "always_on_top": true,
+  "click_through": false
+}

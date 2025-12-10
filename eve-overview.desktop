@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=EVE Overview
+Comment=Multi-window preview tool for Linux
+Exec=/path/to/EVE-Overview/eve-overview.sh
+Icon=/path/to/EVE-Overview/icon.png
+Terminal=false
+Categories=Utility;System;
+Keywords=window;preview;monitor;EVE;
