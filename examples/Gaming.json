@@ -1,0 +1,41 @@
+{
+  "name": "Gaming",
+  "windows": [
+    {
+      "window_id": "0x3200001",
+      "window_title": "EVE Online - Character 1",
+      "x": 1920,
+      "y": 50,
+      "width": 480,
+      "height": 270,
+      "scale": 0.3,
+      "hotkey": "<ctrl>+<alt>+1",
+      "enabled": true
+    },
+    {
+      "window_id": "0x3200002",
+      "window_title": "EVE Online - Character 2",
+      "x": 1920,
+      "y": 330,
+      "width": 480,
+      "height": 270,
+      "scale": 0.3,
+      "hotkey": "<ctrl>+<alt>+2",
+      "enabled": true
+    },
+    {
+      "window_id": "0x3200003",
+      "window_title": "EVE Online - Character 3",
+      "x": 1920,
+      "y": 610,
+      "width": 480,
+      "height": 270,
+      "scale": 0.3,
+      "hotkey": "<ctrl>+<alt>+3",
+      "enabled": true
+    }
+  ],
+  "refresh_rate": 30,
+  "always_on_top": true,
+  "click_through": false
+}
