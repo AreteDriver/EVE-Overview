@@ -353,6 +353,19 @@ class MainWindow(QMainWindow):
         # Create preview frame
         self._create_preview(window_id, window_title)
     
+    def _make_preview_update_callback(self, window_id: str):
+        """Create a closure-safe update callback for a preview frame
+        
+        Args:
+            window_id: The window ID to bind to the callback
+            
+        Returns:
+            A callable that updates the preview for the specified window
+        """
+        def callback():
+            self._update_preview(window_id)
+        return callback
+    
     def _create_preview(self, window_id: str, window_title: str):
         """Create a new preview frame"""
         frame = PreviewFrame(window_id, window_title)
@@ -361,12 +374,7 @@ class MainWindow(QMainWindow):
         # Connect signals
         frame.closed.connect(self._on_preview_closed)
         frame.activated.connect(self._on_preview_activated)
-        
-        # Fix closure by using default argument
-        def make_update_callback(wid=window_id):
-            return lambda: self._update_preview(wid)
-        
-        frame.request_update = make_update_callback()
+        frame.request_update = self._make_preview_update_callback(window_id)
         
         # Show frame
         frame.show()
@@ -395,12 +403,7 @@ class MainWindow(QMainWindow):
         # Connect signals
         frame.closed.connect(self._on_preview_closed)
         frame.activated.connect(self._on_preview_activated)
-        
-        # Fix closure by using default argument
-        def make_update_callback(wid=config.window_id):
-            return lambda: self._update_preview(wid)
-        
-        frame.request_update = make_update_callback()
+        frame.request_update = self._make_preview_update_callback(config.window_id)
         
         # Register hotkey if specified
         if config.hotkey:

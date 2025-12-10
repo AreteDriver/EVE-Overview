@@ -79,8 +79,8 @@ class WindowCapture:
         """Capture a window by its ID
         
         Args:
-            window_id: X11 window ID (hexadecimal format from wmctrl like '0x123abc'
-                      or decimal format from xdotool)
+            window_id: X11 window ID. Can be hexadecimal format from wmctrl 
+                      (e.g., '0x123abc') or decimal format from xdotool.
             scale: Scale factor for the captured image
             
         Returns:
@@ -147,8 +147,8 @@ class WindowCapture:
         """Activate/focus a window by its ID
         
         Args:
-            window_id: X11 window ID (hexadecimal format from wmctrl like '0x123abc'
-                      or decimal format from xdotool)
+            window_id: X11 window ID. Can be hexadecimal format from wmctrl 
+                      (e.g., '0x123abc') or decimal format from xdotool.
             
         Returns:
             True if successful
