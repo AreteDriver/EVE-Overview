@@ -361,7 +361,12 @@ class MainWindow(QMainWindow):
         # Connect signals
         frame.closed.connect(self._on_preview_closed)
         frame.activated.connect(self._on_preview_activated)
-        frame.request_update = lambda: self._update_preview(window_id)
+        
+        # Fix closure by using default argument
+        def make_update_callback(wid=window_id):
+            return lambda: self._update_preview(wid)
+        
+        frame.request_update = make_update_callback()
         
         # Show frame
         frame.show()
@@ -390,7 +395,12 @@ class MainWindow(QMainWindow):
         # Connect signals
         frame.closed.connect(self._on_preview_closed)
         frame.activated.connect(self._on_preview_activated)
-        frame.request_update = lambda: self._update_preview(config.window_id)
+        
+        # Fix closure by using default argument
+        def make_update_callback(wid=config.window_id):
+            return lambda: self._update_preview(wid)
+        
+        frame.request_update = make_update_callback()
         
         # Register hotkey if specified
         if config.hotkey:

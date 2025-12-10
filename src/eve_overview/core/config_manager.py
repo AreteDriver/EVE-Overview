@@ -3,7 +3,7 @@ import json
 import os
 from pathlib import Path
 from typing import Dict, List, Any, Optional
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass
 import logging
 
 
@@ -19,6 +19,20 @@ class WindowConfig:
     scale: float = 0.3
     hotkey: str = ""
     enabled: bool = True
+    
+    def to_dict(self) -> Dict:
+        """Convert to dictionary"""
+        return {
+            'window_id': self.window_id,
+            'window_title': self.window_title,
+            'x': self.x,
+            'y': self.y,
+            'width': self.width,
+            'height': self.height,
+            'scale': self.scale,
+            'hotkey': self.hotkey,
+            'enabled': self.enabled
+        }
 
 
 @dataclass
@@ -34,7 +48,7 @@ class Profile:
         """Convert to dictionary"""
         return {
             'name': self.name,
-            'windows': [asdict(w) for w in self.windows],
+            'windows': [w.to_dict() for w in self.windows],
             'refresh_rate': self.refresh_rate,
             'always_on_top': self.always_on_top,
             'click_through': self.click_through

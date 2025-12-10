@@ -86,13 +86,14 @@ class HotkeyManager(QObject):
             callback = info['callback']
             
             # Wrap callback to emit signal
-            def make_callback(cb, hk_name):
+            # Use default arguments to capture current values
+            def make_callback(cb=callback, hk_name=name):
                 def wrapper():
                     cb()
                     self.hotkey_triggered.emit(hk_name)
                 return wrapper
             
-            hotkey_map[combo] = make_callback(callback, name)
+            hotkey_map[combo] = make_callback()
         
         try:
             # Start new listener
